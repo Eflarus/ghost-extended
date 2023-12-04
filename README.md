@@ -1,4 +1,6 @@
 # Ghost CMS extended image
+
+## About
 Extending the post excerpt capacity to use it as a custom field.
 - Default length - 300
 - New length - 1500
@@ -6,13 +8,26 @@ Extending the post excerpt capacity to use it as a custom field.
 
 Dockerfile modifies the ghost cms source image by increasing the length of the `custom_excerpt` field to 1500 characters. This field can be called anywhere in the post context, allowing you to use it as a custom field for your needs. 
 
-The solution was tested with version 5.75.0, but most likely will work with other versions as well.
+The solution was tested with version `5.75.0`, but most likely will work with other versions as well.
 
+## Deploy
+You can run docker compose for fast deploy
+```
+docker compose up -d 
+```
+or just build image and use it later
+```
+docker build .
+```
+
+## Usage example
 An example use case can be seen below:
 
-custom_excerpt value: `{"name":"John","sub1":"hi","sub2":"world!"}`
+Set custom_excerpt value: 
 
-post-card.hbs:
+`{"name":"John","title":"Example","sub1":"Hi there","sub2":"There is default json object in string view"}`
+
+And customise post-card.hbs in your theme files:
 ```post-card.hbs
 <article id={{slug}} class="post-card-m {{post_class}}">
 </article>
