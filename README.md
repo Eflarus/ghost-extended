@@ -6,6 +6,8 @@ Extending the post excerpt capacity to use it as a custom field.
 
 Dockerfile modifies the ghost cms source image by increasing the length of the `custom_excerpt` field to 1500 characters. This field can be called anywhere in the post context, allowing you to use it as a custom field for your needs. 
 
+The solution was tested with version 5.75.0, but most likely will work with other versions as well.
+
 An example use case can be seen below:
 
 custom_excerpt value: `{"name":"John","sub1":"hi","sub2":"world!"}`
